@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
@@ -27,5 +28,10 @@ class Product extends Model
             return $this->attributes['image'];
         }
         return \Storage::disk('public')->url($this->attributes['image']);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category);
     }
 }
