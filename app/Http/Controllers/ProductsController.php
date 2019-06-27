@@ -68,8 +68,8 @@ class ProductsController extends Controller
                 'order'  => $order,
             ],
             // <=> isset($category) ? $category : null
-            // 'category' => $category ?? null,
-            'category' => isset($category) ? $category : null,
+            'category' => $category ?? null,
+            // 'category' => isset($category) ? $category : null,
             // 将类目树传递给模板文件
             'categoryTree' => $categoryService->getCategoryTree(),
         ]);
