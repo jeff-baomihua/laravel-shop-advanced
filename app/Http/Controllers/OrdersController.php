@@ -79,7 +79,7 @@ class OrdersController extends Controller
         if (!$order->paid_at) {
             throw new InvalidRequestException('该订单未支付，不可评价');
         }
-        // 使用 load 方法加载关联数据，避免 N + 1 性能问题
+        // 使用 load 方法加载关联数据，避免 N + 1 性能问题, load是已经查询的加载，with是未查询
         return view('orders.review', ['order' => $order->load(['items.productSku', 'items.product'])]);
     }
 
