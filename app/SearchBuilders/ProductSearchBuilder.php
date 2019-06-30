@@ -102,10 +102,12 @@ class ProductSearchBuilder
         return $this;
     }
 
-    // 添加一个按商品属性筛选的条件
-    public function propertyFilter($name, $value)
+    // 添加一个按商品属性筛选的条件 
+    // type: filter / should
+    public function propertyFilter($name, $value, $type = 'filter')
     {
-        $this->params['body']['query']['bool']['filter'][] = [
+        // 将原来的 filter 改成 $type
+        $this->params['body']['query']['bool'][$type][] = [
             'nested' => [
                 'path'  => 'properties',
                 'query' => [
@@ -113,6 +115,15 @@ class ProductSearchBuilder
                 ],
             ],
         ];
+
+        return $this;
+    }
+
+    // 设置 minimum_should_match 参数
+    // minimum_should_match 参数来改变需要满足的个数，满足的 should 条件越多，对应的文档的打分就越高，打分高的文档排序会靠前
+    public function minShouldMatch($count)
+    {
+        $this->params['body']['query']['bool']['minimum_should_match'] = (int)$count;
 
         return $this;
     }
