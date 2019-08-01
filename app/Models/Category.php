@@ -21,7 +21,7 @@ class Category extends Model
             if (is_null($category->parent_id)) {
                 // 将层级设为0
                 $category->level = 0;
-                // 将 path 设为 - 
+                // 将 path 设为 -
                 $category->path = '-';
             } else {
                 // 将层级设为父类目的层级 + 1
