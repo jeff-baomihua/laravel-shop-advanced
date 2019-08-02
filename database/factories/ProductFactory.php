@@ -4,16 +4,12 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Product::class, function (Faker $faker) {
     $image = $faker->randomElement([
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/7kG1HekGK6.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/1B3n0ATKrn.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/r3BNRe4zXG.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/C0bVuKB2nt.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/82Wf2sg8gM.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/nIvBAQO5Pj.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/XrtIwzrxj7.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/uYEHCJ1oRp.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/2JMRaFwRpo.jpg",
-        "https://iocaffcdn.phphub.org/uploads/images/201806/01/5320/pa7DrV43Mw.jpg",
+        'https://gd1.alicdn.com/imgextra/i4/1083917756/TB2oEZoc4rI8KJjy0FpXXb5hVXa_!!1083917756.jpg_400x400.jpg',
+        'https://gd4.alicdn.com/imgextra/i1/551372554/TB2M6fLsNxmpuFjSZFNXXXrRXXa_!!551372554.jpg_400x400.jpg',
+        'https://gd3.alicdn.com/imgextra/i3/70848396/TB2QoXUo9FmpuFjSZFrXXayOXXa_!!70848396.jpg_400x400.jpg',
+        'https://gd4.alicdn.com/imgextra/i4/2386655078/O1CN011nNlhBSctpCJY0k_!!2386655078.jpg_400x400.jpg',
+        'https://gd4.alicdn.com/imgextra/i2/0/TB1KeVlGFXXXXcHXFXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg',
+        'https://gd3.alicdn.com/imgextra/i2/1827387249/TB20Dg9cH3nBKNjSZFMXXaUSFXa_!!1827387249.jpg_400x400.jpg',
     ]);
 
     return [
