@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // 这里的配置信息，是沙箱公私钥，如果是商业项目，一定要把数据配置到 .env 统一管理，因为.env 是不上传到 github 的
     'alipay' => [
         'app_id'         => '2016101100660864',
         'ali_public_key' => 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApSqGamM/u/4ZijNEhWDk2WMSJxJBHv9G5689ZiuWKisWk8cqun/Vy0IFhhRGpieOvfQserBYQpABt/Jo4mRVdaZBuPT8LQaWgSXU6fapEOTGrKUd4NbmY/n73kxZFrHK5xoENpiEnAHPdsshkrFKcvWIRh6GAvYQ+mbhscVPk+z8UfzvLkJch+IVHa81chB2yEUxfgCqbDMpA3NZ+WlaiWFnwj29SV0OiiRO9o8clf+AiQebdPQrR6o3OqRQ0qPk351urECHBK18EVymaCSb+aKLuSD8/7B/0VLecxEX88T8BBPY0ZdRFcoa92Oq/r3/z4Z0K4Ft15XaKjEEbHjkJQIDAQAB',
@@ -10,12 +11,22 @@ return [
         ],
     ],
 
+    // 正式这么用
+    // 'alipay' => [
+    //     'app_id'         => env('ALIPAY_APP_ID', ''),
+    //     'ali_public_key' => env('ALIPAY_PUBLIC_KEY', ''),
+    //     'private_key'    => env('ALIPAY_PRIVATE_KEY', ''),
+    //     'log'            => [
+    //         'file' => storage_path('logs/alipay.log'),
+    //     ],
+    // ],
+
     'wechat' => [
-        'app_id'      => '',
-        'mch_id'      => '',
-        'key'         => '',
-        'cert_client' => '',
-        'cert_key'    => '',
+        'app_id'      => env('WXPAY_APP_ID', ''),
+        'mch_id'      => env('WXPAY_MCH_ID', ''),
+        'key'         => env('WXPAY_KEY', ''),
+        'cert_client' => env('WXPAY_CERT_CLIENT', ''),
+        'cert_key'    => env('WXPAY_CERT_KEY', ''),
         'log'         => [
             'file' => storage_path('logs/wechat_pay.log'),
         ],

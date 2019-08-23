@@ -53,6 +53,7 @@ Route::post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('pa
 Route::post('payment/wechat/refund_notify', 'PaymentController@wechatRefundNotify')->name('payment.wechat.refund_notify');
 
 
+// 支付宝沙箱支付测试
 // Route::get('alipay', function() {
 //     return app('alipay')->web([
 //         'out_trade_no' => time(),
