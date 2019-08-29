@@ -12,11 +12,19 @@ class SeckillOrderRequest extends Request
     public function rules()
     {
         return [
-            'address_id' => [
-                'required',
-                Rule::exists('user_addresses', 'id')->where('user_id', $this->user()->id)
-            ],
-            'sku_id'     => [
+            // 删除 address_id
+            // 'address_id' => [
+            //     'required',
+            //     Rule::exists('user_addresses', 'id')->where('user_id', $this->user()->id)
+            // ],
+            'address.province'      => 'required',
+            'address.city'          => 'required',
+            'address.district'      => 'required',
+            'address.address'       => 'required',
+            'address.zip'           => 'required',
+            'address.contact_name'  => 'required',
+            'address.contact_phone' => 'required',
+            'sku_id'                => [
                 'required',
                 function ($attributes, $value, $fail) {
                     if (!$sku = ProductSku::find($value)) {

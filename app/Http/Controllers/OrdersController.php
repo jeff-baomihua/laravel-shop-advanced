@@ -159,9 +159,9 @@ class OrdersController extends Controller
     public function seckill(SeckillOrderRequest $request, OrderService $orderService)
     {
         $user = $request->user();
-        $address = UserAddress::find($request->input('address_id'));
+        // $address = UserAddress::find($request->input('address_id'));//删除
         $sku = ProductSku::find($request->input('sku_id'));
 
-        return $orderService->seckill($user, $address, $sku);
+        return $orderService->seckill($user, $request->input('address'), $sku);
     }
 }
