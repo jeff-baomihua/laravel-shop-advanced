@@ -164,10 +164,13 @@ class OrderService
             $item->product()->associate($sku->product_id);
             $item->productSku()->associate($sku);
             $item->save();
-            // 扣减对应 SKU 库存
+            // 扣减对应 SKU 库存, 不用担心 mysql 承受不来，没问题的，能减库存的人不多~
             if ($sku->decreaseStock(1) <= 0) {
                 throw new InvalidRequestException("该商品库存不足");
             }
+
+            // 此时要减去 Redis 中的库存
+            \Redis::decr('seckill_sku_'.$sku->id);
 
             return $order;
         });

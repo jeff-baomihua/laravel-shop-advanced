@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// 将秒杀接口放在路由的最开头，是因为 Laravel 匹配路由是从上往下，很省掉很多路由匹配的资源消耗
+Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
 
 Route::redirect('/', '/products')->name('root');
 Route::get('products', 'ProductsController@index')->name('products.index');
@@ -45,8 +47,6 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
 
     Route::post('crowdfunding_orders', 'OrdersController@crowdfunding')->name('crowdfunding_orders.store');
-
-    Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
 });
 
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
