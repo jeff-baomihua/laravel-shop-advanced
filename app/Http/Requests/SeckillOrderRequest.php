@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Exceptions\InvalidRequestException;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductSku;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\Rule;
 
 class SeckillOrderRequest extends Request
