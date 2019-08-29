@@ -36,7 +36,7 @@ class SeckillProductsController extends CommonProductsController
         $form->saved(function (Form $form) {
             $product = $form->model();
             // 商品重新加载秒杀字段
-            $product->load(['seckill']);
+            $product->load(['seckill', 'skus']);
             // 获取当前时间与秒杀结束时间的差值
             $diff = $product->seckill->end_at->getTimestamp() - time();
             // 遍历商品 SKU
