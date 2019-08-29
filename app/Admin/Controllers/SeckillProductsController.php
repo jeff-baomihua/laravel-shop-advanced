@@ -50,7 +50,7 @@ class SeckillProductsController extends CommonProductsController
                     \Redis::del('seckill_sku_'.$sku->id);
                 }
             });
-        })
+        });
     }
 }
 
