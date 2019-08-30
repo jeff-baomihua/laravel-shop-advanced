@@ -11,7 +11,7 @@
 |
 */
 // 将秒杀接口放在路由的最开头，是因为 Laravel 匹配路由是从上往下，很省掉很多路由匹配的资源消耗
-Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
+Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store')->middleware('random_drop:80');// :100 100是拒绝的比例
 
 Route::redirect('/', '/products')->name('root');
 Route::get('products', 'ProductsController@index')->name('products.index');
